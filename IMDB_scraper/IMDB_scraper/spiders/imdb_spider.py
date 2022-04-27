@@ -24,7 +24,7 @@ class ImdbSpider(scrapy.Spider):
 
     def parse_actor_page(self,response):
         name=response.css(".header").css("span.itemprop::text").get()
-        for movie in response.css("div.filmo-category-section::not([style*='display:none;']) b"):
+        for movie in response.css("div.filmo-category-section:not([style*='display:none;']) b"):
             yield{
                 "name":name,
                 "movie_name":movie.css("a::text").get()
