@@ -8,7 +8,7 @@
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 BOT_NAME = 'IMDB_scraper'
-CLOSESPIDER_PAGECOUNT = 20 #prevents scraper from downloading too much data 
+#CLOSESPIDER_PAGECOUNT = 20 #prevents scraper from downloading too much data 
 SPIDER_MODULES = ['IMDB_scraper.spiders']
 NEWSPIDER_MODULE = 'IMDB_scraper.spiders'
 
