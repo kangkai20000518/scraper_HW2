@@ -9,10 +9,10 @@ class ImdbSpider(scrapy.Spider):
     start_urls = ['https://www.imdb.com/title/tt0898266/']
 
     def parse(self, response):
-        next_page = response.css("a[href*='fullcredits']").attrib["href"]
-        if next_page: # identical to if next_page is not None
-            next_page = response.urljoin(next_page)
-            yield scrapy.Request(next_page, callback=self.parse_full_credits)
+        link = response.css("a[href*='fullcredits']").attrib["href"]
+        if link: # identical to if next_page is not None
+            link = response.urljoin(link)
+            yield scrapy.Request(link, callback=self.parse_full_credits)
 
     def parse_full_credits(self, response):
         paths=[a.attrib["href"] for a in response.css("td.primary_photo a")]
